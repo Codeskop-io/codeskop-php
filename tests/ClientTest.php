@@ -15,7 +15,7 @@ final class ClientTest extends TestCase
     {
         $this->assertStringContainsString('secret key', (string) Client::keyProblem('cs_live_sk_abcdefghijkl'));
         $this->assertNotNull(Client::keyProblem('nope'));
-        $this->assertNull(Client::keyProblem('cs_live_pk_iq7kN0Sp9FWSrjL'));
+        $this->assertNull(Client::keyProblem('cs_live_pk_Ex4mpleKey123'));
         $c = $this->client(['api_key' => 'cs_live_sk_abcdefghijkl']);
         $this->assertFalse($c->enabled());
         Codeskop::captureMessage('x');

@@ -1,0 +1,8 @@
+# Keep dev-only files out of the Packagist dist archive.
+/tests export-ignore
+/.github export-ignore
+/Dockerfile.test export-ignore
+/phpunit.xml export-ignore
+/.dockerignore export-ignore
+/.gitattributes export-ignore
+/.gitignore export-ignore
