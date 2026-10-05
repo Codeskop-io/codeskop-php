@@ -1,0 +1,26 @@
+{
+    "name": "codeskop/codeskop-php",
+    "description": "Codeskop server SDK for PHP: errors, incoming requests and outgoing API calls from Laravel and plain PHP apps.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["error-monitoring", "apm", "laravel", "guzzle", "codeskop"],
+    "homepage": "https://www.codeskop.com/docs/server/php",
+    "require": {
+        "php": ">=8.1",
+        "ext-json": "*",
+        "ext-zlib": "*"
+    },
+    "suggest": {
+        "ext-curl": "Faster, more reliable delivery (falls back to PHP streams)",
+        "ext-apcu": "Caches remote config between requests (falls back to a temp file)"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5",
+        "guzzlehttp/guzzle": "^7.8",
+        "orchestra/testbench": "^8.0 || ^9.0 || ^10.0"
+    },
+    "autoload": { "psr-4": { "Codeskop\\": "src/" } },
+    "autoload-dev": { "psr-4": { "Codeskop\\Tests\\": "tests/" } },
+    "extra": { "laravel": { "providers": ["Codeskop\\Laravel\\CodeskopServiceProvider"] } },
+    "config": { "sort-packages": true }
+}

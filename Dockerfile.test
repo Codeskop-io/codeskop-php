@@ -1,0 +1,13 @@
+# docker build -f Dockerfile.test --build-arg PHP=8.1 -t codeskop-php-test:8.1 . && docker run --rm codeskop-php-test:8.1
+ARG PHP=8.3
+FROM php:${PHP}-cli
+RUN apt-get update && apt-get install -y --no-install-recommends git unzip && rm -rf /var/lib/apt/lists/*
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+WORKDIR /app
+COPY composer.json ./
+# Test-only: older Laravel majors in the matrix carry advisories; they never ship with the SDK.
+RUN (composer config --json policy.advisories.block false || composer config audit.block-insecure false) \
+ && composer update --no-interaction --no-progress --prefer-dist --no-autoloader
+COPY . .
+RUN composer dump-autoload
+CMD ["vendor/bin/phpunit"]
