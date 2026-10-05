@@ -63,6 +63,20 @@ final class EventsTest extends \PHPUnit\Framework\TestCase
         throw new \LogicException('inner');
     }
 
+    public function testAppClosureBoundToVendorClassIsNamedByFile(): void
+    {
+        $fn = \Closure::bind(static function () {
+            throw new \RuntimeException('route closure');
+        }, null, \PHPUnit\Framework\Assert::class);
+        try {
+            $fn();
+        } catch (\Throwable $e) {
+            $frame = Events::exceptionPayload($e, dirname(__DIR__))['stacktrace'][0];
+        }
+        $this->assertSame('tests/EventsTest', $frame['class']);
+        $this->assertTrue($frame['in_app']);
+    }
+
     public function testOutgoingEvents(): void
     {
         [$timing, $error] = Events::outgoing('get', 'api.example.com', '/v1/users/12', 503, 12.5, null, 'u1');

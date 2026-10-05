@@ -108,7 +108,10 @@ final class Events
 
     private static function frame(?string $class, ?string $function, ?string $file, int $line, ?string $root): array
     {
-        $f = ['class' => $class ?? self::fileModule($file), 'method' => $function ?? '', 'file' => self::shortFile($file, $root) ?? '', 'line' => $line];
+        if ($class !== null && str_contains((string) $function, '{closure') && self::inApp($file) && self::vendorClass($class)) {
+            $class = null; // an app closure bound to a framework class (Laravel route files): name it by its file
+        }
+        $f = ['class' => $class ?? self::fileModule($file, $root), 'method' => $function ?? '', 'file' => self::shortFile($file, $root) ?? '', 'line' => $line];
         $f['in_app'] = self::inApp($file, $class) && !self::internalFunction($class, $function);
         return $f;
     }
@@ -121,9 +124,23 @@ final class Events
         return (new \ReflectionFunction($function))->isInternal();
     }
 
-    private static function fileModule(?string $file): string
+    private static function fileModule(?string $file, ?string $root = null): string
     {
-        return $file ? basename($file, '.php') : '';
+        if (!$file) {
+            return '';
+        }
+        $short = (string) self::shortFile($file, $root);
+        return str_ends_with($short, '.php') ? substr($short, 0, -4) : $short;
+    }
+
+    private static function vendorClass(string $class): bool
+    {
+        try {
+            $file = class_exists($class, false) ? (new \ReflectionClass($class))->getFileName() : false;
+        } catch (\Throwable) {
+            return false;
+        }
+        return is_string($file) && str_contains(str_replace('\\', '/', $file), '/vendor/');
     }
 
     public static function exceptionPayload(\Throwable $e, ?string $root, int $depth = 0): array

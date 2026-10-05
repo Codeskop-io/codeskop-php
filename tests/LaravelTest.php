@@ -79,7 +79,7 @@ final class LaravelTest extends \Orchestra\Testbench\TestCase
             ['/api/orders/{order}', 200, false],
             ['/api/boom/{id}', 500, false],
             ['/api/missing', 404, false],
-            ['/api/orders/{id}', 403, true],
+            ['/api/orders/{order}', 403, true],
             ['/api/orders/{order}', 200, false],
             ['/api/outgoing', 200, false],
         ], $reqs);

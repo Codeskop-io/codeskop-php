@@ -22,6 +22,7 @@ class CodeskopMiddleware
         $rec = Codeskop::startRequest(IncomingRequest::fromSymfony($request));
         $request->attributes->set(self::ATTR, $rec);
         if ($rec->trust()) {
+            $rec->route = self::matchRoute($request); // blocked before routing: still group by route template
             return response(Codeskop::BLOCKED_BODY, 403, ['Content-Type' => 'application/json']);
         }
         return $next($request);
@@ -44,6 +45,15 @@ class CodeskopMiddleware
             $bytes = $len !== null ? (int) $len : (is_string($content) ? strlen($content) : null);
         }
         $rec->finish($template, $status, $bytes, self::userId());
+    }
+
+    private static function matchRoute(Request $request): ?string
+    {
+        try {
+            return Events::templateRoute(app('router')->getRoutes()->match($request)->uri());
+        } catch (\Throwable) {
+            return null;
+        }
     }
 
     private static function userId(): ?string
