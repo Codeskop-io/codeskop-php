@@ -3,8 +3,27 @@
     "description": "Codeskop server SDK for PHP: errors, incoming requests and outgoing API calls from Laravel and plain PHP apps.",
     "type": "library",
     "license": "MIT",
-    "keywords": ["error-monitoring", "apm", "laravel", "guzzle", "codeskop"],
+    "keywords": [
+        "error-monitoring",
+        "apm",
+        "laravel",
+        "guzzle",
+        "codeskop"
+    ],
     "homepage": "https://www.codeskop.com/docs/server/php",
+    "authors": [
+        {
+            "name": "Codeskop",
+            "email": "plinqdevelopers@gmail.com",
+            "homepage": "https://www.codeskop.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/Codeskop-io/codeskop-php/issues",
+        "source": "https://github.com/Codeskop-io/codeskop-php",
+        "docs": "https://www.codeskop.com/docs/server/php",
+        "email": "plinqdevelopers@gmail.com"
+    },
     "require": {
         "php": ">=8.1",
         "ext-json": "*",
@@ -19,8 +38,24 @@
         "guzzlehttp/guzzle": "^7.8",
         "orchestra/testbench": "^8.0 || ^9.0 || ^10.0"
     },
-    "autoload": { "psr-4": { "Codeskop\\": "src/" } },
-    "autoload-dev": { "psr-4": { "Codeskop\\Tests\\": "tests/" } },
-    "extra": { "laravel": { "providers": ["Codeskop\\Laravel\\CodeskopServiceProvider"] } },
-    "config": { "sort-packages": true }
+    "autoload": {
+        "psr-4": {
+            "Codeskop\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Codeskop\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Codeskop\\Laravel\\CodeskopServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
 }
