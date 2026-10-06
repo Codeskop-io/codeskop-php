@@ -13,7 +13,7 @@ namespace Codeskop;
  */
 class Client
 {
-    public const VERSION = '0.1.0';
+    public const VERSION = '0.1.1';
     public const MAX_BATCH = 100;
     public const MAX_EVENT_BYTES = 65536;
     public const MAX_BODY_BYTES = 1048576;

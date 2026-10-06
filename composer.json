@@ -14,7 +14,7 @@
     "authors": [
         {
             "name": "Codeskop",
-            "email": "plinqdevelopers@gmail.com",
+            "email": "support@codeskop.com",
             "homepage": "https://www.codeskop.com"
         }
     ],
@@ -22,7 +22,7 @@
         "issues": "https://github.com/Codeskop-io/codeskop-php/issues",
         "source": "https://github.com/Codeskop-io/codeskop-php",
         "docs": "https://www.codeskop.com/docs/server/php",
-        "email": "plinqdevelopers@gmail.com"
+        "email": "support@codeskop.com"
     },
     "require": {
         "php": ">=8.1",

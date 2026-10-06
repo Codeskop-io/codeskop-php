@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1 (2026-10-06)
+
+- Contact email is now support@codeskop.com.
+
 ## 0.1.0 (2026-10-05)
 
 - First beta: uncaught exceptions and fatal errors (including out-of-memory), handled errors and messages.
