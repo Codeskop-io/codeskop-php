@@ -12,8 +12,6 @@
 [![PHP version](https://img.shields.io/packagist/dependency-v/codeskop/codeskop-php/php.svg)](https://packagist.org/packages/codeskop/codeskop-php)
 [![license](https://img.shields.io/github/license/Codeskop-io/codeskop-php.svg)](https://github.com/Codeskop-io/codeskop-php/blob/main/LICENSE)
 
-> **Beta.** The PHP SDK is in beta, so its API and options may still change between 0.x releases. Feedback is welcome at support@codeskop.com.
-
 `codeskop/codeskop-php` is the PHP SDK for [Codeskop](https://www.codeskop.com/?utm_source=github&utm_medium=readme&utm_campaign=codeskop-php). Add it to a Laravel or plain PHP app and Codeskop groups its errors into issues with stack traces, records every request it handles by route, and shows which outgoing API calls fail or slow down, next to the crashes and network calls from your mobile and web apps.
 
 - **Errors:** uncaught exceptions, fatal errors (including out-of-memory), and `Codeskop::captureException()` / `captureMessage()`. In Laravel, through the app's exception handler.
@@ -190,7 +188,7 @@ Monitor your mobile apps, web apps and backend services in one dashboard:
 | Python | `codeskop` | [Docs](https://www.codeskop.com/docs/server/python?utm_source=github&utm_medium=readme&utm_campaign=codeskop-php) · [GitHub](https://github.com/Codeskop-io/codeskop-python) |
 | Node.js | `@codeskop/node` | [Docs](https://www.codeskop.com/docs/server/node?utm_source=github&utm_medium=readme&utm_campaign=codeskop-php) · [GitHub](https://github.com/Codeskop-io/codeskop-node) |
 | Java and Kotlin (JVM) | `com.codeskop.sdk:codeskop-server` | [Docs](https://www.codeskop.com/docs/server/java?utm_source=github&utm_medium=readme&utm_campaign=codeskop-php) · [GitHub](https://github.com/Codeskop-io/codeskop-jvm) |
-| **PHP (beta)** (this SDK) | `codeskop/codeskop-php` | [Docs](https://www.codeskop.com/docs/server/php?utm_source=github&utm_medium=readme&utm_campaign=codeskop-php) · [GitHub](https://github.com/Codeskop-io/codeskop-php) |
+| **PHP** (this SDK) | `codeskop/codeskop-php` | [Docs](https://www.codeskop.com/docs/server/php?utm_source=github&utm_medium=readme&utm_campaign=codeskop-php) · [GitHub](https://github.com/Codeskop-io/codeskop-php) |
 | Any other language | OpenTelemetry (OTLP) or HTTPS | [OpenTelemetry](https://www.codeskop.com/docs/server/opentelemetry?utm_source=github&utm_medium=readme&utm_campaign=codeskop-php) · [Ingest API](https://www.codeskop.com/docs/reference/ingest-api?utm_source=github&utm_medium=readme&utm_campaign=codeskop-php) |
 
 ## Help
